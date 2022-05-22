@@ -31,19 +31,28 @@ class CalcuatorFrag: Fragment() {
 
         val buttonPlus = view.findViewById<Button>(R.id.plus)
         buttonPlus.setOnClickListener {
-            val x = firstNumber.text.toString().toInt()
-            val y = SecondNumber.text.toString().toInt()
-            val summ = viewModel.plus(x, y)
-            view.findViewById<TextView>(R.id.Result).text = summ.toString()
+            val summ = viewModel.plus()
+            resultText.text = summ.toString()
         }
 
         val buttonMinus = view.findViewById<Button>(R.id.minus)
         buttonMinus.setOnClickListener {
-            val x = firstNumber.text.toString().toInt()
-            val y = SecondNumber.text.toString().toInt()
-            val diff = viewModel.minus(x, y)
-            view.findViewById<TextView>(R.id.Result).text = diff.toString()
+            val diff = viewModel.minus()
+            resultText.text = diff.toString()
 
+        val buttonMultiply = view.findViewById<Button>(R.id.multiply)
+        buttonMultiply.setOnClickListener {
+            val res = viewModel.multiply()
+            resultText.text = res.toString()
+        }
+        val buttonDivide = view.findViewById<Button>(R.id.divide)
+        buttonDivide.setOnClickListener {
+            try {
+                val res = viewModel.divide()
+                resultText.text = res.toString()
+            } catch(error: Exception) {
+                resultText.text = error.message
+            }            }
         }
         firstNumber.addTextChangedListener {fieldValue ->
             viewModel.updateFirstNumber(fieldValue.toString())

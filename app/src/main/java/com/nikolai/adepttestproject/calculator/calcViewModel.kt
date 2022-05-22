@@ -6,11 +6,23 @@ class calcViewModel {
 
 
 
-    fun plus(x: Int, y: Int): Int {
-        return x + y
+    fun plus(): Int {
+        return currentFirstString.toInt() + currentSecondString.toInt()
     }
-    fun minus(x: Int, y: Int): Int {
-        return x - y
+    fun minus(): Int {
+        return currentFirstString.toInt() - currentSecondString.toInt()
+    }
+    fun multiply(): Int {
+        return currentFirstString.toInt() * currentSecondString.toInt()
+    }
+    fun divide(): Int {
+        val second = currentSecondString.toInt()
+        if (second != 0) {
+            return currentFirstString.toInt() / currentSecondString.toInt()
+        }
+        else {
+            throw Exception("NOT 0")
+        }
     }
 
     fun updateFirstNumber(number: String) {
