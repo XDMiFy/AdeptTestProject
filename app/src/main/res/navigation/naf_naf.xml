@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/naf_naf"
+    app:startDestination="@id/firstFrag">
+
+    <fragment
+        android:id="@+id/firstFrag"
+        android:name="com.nikolai.adepttestproject.firstScreen.FirstFrag"
+        android:label="FirstFrag" >
+        <action
+            android:id="@+id/action_firstFrag_to_calcuatorFrag"
+            app:destination="@id/calcuatorFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/calcuatorFrag"
+        android:name="com.nikolai.adepttestproject.calculator.CalcuatorFrag"
+        android:label="CalcuatorFrag" />
+</navigation>
